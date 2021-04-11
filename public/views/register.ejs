@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> Florist </title>
+		<link rel="stylesheet" type="text/css" href="../assets/stylesheets/index_style.css">
+	</head>
+
+
+	<body>
+		<% include header.ejs %>
+		<% include user-navigation.ejs %>
+		<% include site-navigation.ejs %>
+
+
+		<article>
+			<form class="forms" method="post" action="/register" >
+
+					User_ID:
+						<input type="text"		name="id"		 /><br><br>
+
+		 			 Password:
+						<input type="password"		name="pswd"		/><br><br>
+
+		 			 First name:
+         		<input type="text"		name="fname"		/><br><br>
+
+           Last name:
+              <input type="text"		name="lname"		/><br><br>
+
+           Email Address:
+              <input type="email"		name="email"		/><br><br>
+
+           Address 1:
+              <input type="text"		name="ad1"		/><br><br>
+
+          Address 2:
+              <input type="text"		name="ad2"		/><br><br>
+
+          City:
+              <input type="text"		name="city"		/><br><br>
+
+          State:
+              <input type="text"		name="state"		/><br><br>
+
+          Zip Code:
+             <input type="text"		name="zip"		/><br><br>
+
+          Country:
+            <input type="text"		name="country"		/><br><br>
+
+					<input type="submit"	 name="Submit"/>
+
+			</form>
+
+    	<% include footer.ejs %>
+		</article>
+
+	</body>
+
+</html>

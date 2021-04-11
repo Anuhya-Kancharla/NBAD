@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> Florist </title>
+		<link rel="stylesheet" type="text/css" href="../assets/stylesheets/index_style.css">
+	</head>
+
+
+	<body>
+		<% include header.ejs %>
+		<% include user-navigation.ejs %>
+		<% include site-navigation.ejs %>
+
+
+		<article>
+			<p><%=info%></p><br>
+			<% if(info=="We do not find your account in our records"){%>
+				<a href="/register">Please Click here to Register </a>
+
+<%	} else if(info=="Please Sign in if you already have an account "){%>
+	<a href="/register">Register otherwise</a>
+
+<%	} %>
+
+<br><br>
+			<form class="forms" method="post" action="/myitems/action?action=Sign_in" >
+
+					Enter your Username:
+						<input type="text"		name="email"		 /><br><br>
+
+		 			Enter your Password:
+						<input type="password"		name="pswd"		/><br><br>
+
+					<input type="submit"	 name="Submit"/>
+
+			</form>
+
+    	<% include footer.ejs %>
+		</article>
+
+	</body>
+
+</html>

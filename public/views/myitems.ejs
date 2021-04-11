@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+	<head>
+		<meta charset="UTF-8">
+		<title> My Items </title>
+		<link rel="stylesheet" type="text/css" href="../assets/stylesheets/myitems_style.css">
+	</head>
+
+
+	<body>
+
+		<% include header.ejs %>
+		<% include user-navigation.ejs %>
+		<% include site-navigation.ejs %>
+		<section>
+				<p><a href="/">Home</a> > <a href="#">My Items</a></p><br>
+				<% if(profile.Items.length == 0){%>
+
+						<p> Your Flower Basket is empty</p><br><br>
+						<p> Visit <a href="/categories"> Categories page </a>to view and add items</p>
+
+				<%}else{%>
+
+						<p> Your Flower Basket:</p><br>
+
+						<table>
+							<tr>
+									<th>Item</th>
+									<th>Category</th>
+									<th>My Rating</th>
+									<th>Made it</th>
+									<th> </th>
+									<th> </th>
+							</tr>
+
+							<% for(var i=0; i < profile.Items.length; i++) { %>
+									<% for(var j=0; j < All_Items.length; j++) { %>
+											<% if(profile.Items[i].Item_Code == All_Items[j].Item_Code){%>
+
+														<td><%if(All_Items[j].User_ID==profile.User_ID){%><img class="cart" src="../assets/Images/user.jpg" alt="User"><%}%>
+															<a href="/item/<%=profile.Items[i].Item_Code%>"><%=All_Items[j].Item_Name%></a></td>
+														<td><%=All_Items[j].Catalog_Category%></td>
+														<td><%=profile.Items[i].Rating%></td>
+														<td><%=profile.Items[i].Tried_it%></td>
+
+														<td><a href="/feedback/<%=profile.Items[i].Item_Code%>" class="button" role="button">  Update </a></td>
+
+														<td><button onClick="window.location.href = '/myItems?action=delete&Item_Code=<%= profile.Items[i].Item_Code%>'">Delete</button></td>
+												</tr>
+											<%}%>
+									<%}%>
+							<%}%>
+						</table>
+				<%}%>
+
+		</section>
+
+
+			<section class="end">
+
+				<p><img class="cart" src="../assets/Images/user.jpg" alt="User"> This indicates that the item belongs to you.</p>
+				<p><a href="#">Click here </a>to share your items with friends.</p>
+
+			</section>
+		<% include footer.ejs %>
+	</body>
+
+</html>

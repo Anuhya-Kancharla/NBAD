@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> Florist </title>
+		<link rel="stylesheet" type="text/css" href="../assets/stylesheets/index_style.css">
+	</head>
+
+
+	<body>
+		<% include header.ejs %>
+		<% include user-navigation.ejs %>
+		<% include site-navigation.ejs %>
+
+
+		<article>
+			<form class="forms" method="post" action="/new_item" >
+
+					Item Code:
+						<input type="text"		name="code"		 /><br><br>
+
+		 			Item Name
+						<input type="text"		name="name"		/><br><br>
+
+		 			 Catalog_Category:
+         		<input type="text"		name="category"		/><br><br>
+
+           Description
+              <input type="text"		name="desc"		/><br><br>
+
+           Rating:
+              <input type="number"		name="rating"		/><br><br>
+
+           Image URL:
+              <input type="text"		name="url"		/><br><br>
+
+					<input type="submit"	 name="Submit"/>
+
+			</form>
+
+    	<% include footer.ejs %>
+		</article>
+
+	</body>
+
+</html>

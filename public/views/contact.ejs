@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> Contact Us </title>
+		<link rel="stylesheet" type="text/css" href="../assets/stylesheets/contact_style.css">
+  </head>
+
+	<body>
+
+		<% include header.ejs %>
+		<% include user-navigation.ejs %>
+		<% include site-navigation.ejs %>
+
+		<form>
+		  Name:<br>
+		  <input type="text" name="name"><br>
+		  Email address:<br>
+		  <input type="text" name="email"><br>
+			Phone:<br>
+		  <input type="text" name="phone"><br>
+			Type your message here:<br>
+		  <input type="text" name="message"><br>
+			<input type="submit" value="Send">
+		</form>
+
+
+		<% include footer.ejs %>
+	</body>
+
+
+</html>

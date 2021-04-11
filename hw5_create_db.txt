@@ -1,0 +1,27 @@
+ use florist
+
+ db.createCollection('categories');
+ db.categories.insert({"name":"Flower Types"});
+ db.categories.insert({"name":"Occassion"});
+
+ db.createCollection('items');
+ db.items.insert({"Item_Code":"1", "Item_Name":"Tulips", "Catalog_Category":"Flower Types", "Description":"Picked fresh from the farm to bring brilliant color to your special recipient's everyday, the Rush of Color Assorted Tulip Bouquet is a warm and sunny way to show them how much you care.Hand gathered in select floral farms, boasting an array of bright colors.", "Rating":5, "GetImageURL":"../assets/Images/1.jpg","User_ID":1});
+ db.items.insert({"Item_Code":"2", "Item_Name":"Roses", "Catalog_Category":"Flower Types", "Description":"Sunny yellow roses are a cheery and wonderful gift. Celebrate a birthday, anniversary, graduation or any occasion with this lively bouquet of roses with seeded eucalyptus in a clear glass vase.", "Rating":5, "GetImageURL":"../assets/Images/2.jpg","User_ID":1});
+ db.items.insert({"Item_Code":"3", "Item_Name":"Lillies", "Catalog_Category":"Flower Types", "Description":"The Pink Posh Bouquet is chic and pink to help you celebrate life's most treasured moments in style! Hot pink roses are bright and beautiful arranged amongst pink Asiatic Lilies, pink gilly flower, green button poms, bupleurum and lush greens to create that perfect gift of flowers. Presented in a clear glass vase, this blushing fresh flower arrangement is ready to send your sweetest wishes in honor of a birthday, an anniversary, or as a way to express your thanks and gratitude.", "Rating":5, "GetImageURL":"../assets/Images/3.jpg","User_ID":2});
+ db.items.insert({"Item_Code":"4", "Item_Name":"Daisies", "Catalog_Category":"Flower Types", "Description":"Picked fresh from the farm to bring vibrant color and happy wishes to your special recipient, the Colorful World Gerbera Daisy Bouquet will lift their spirits with each sunlit bloom. Hand gathered in select floral farms and showcasing a rainbow of color, including red, yellow, pink, white, and orange, this simply beautiful flower arrangement has been picked fresh for you to bring fun and excitement to their next birthday celebration, to offer you congratulations wishes, or as an inspiring way to send your get well sentiments. This bouquet includes the following: an assortment of gerbera daisies.", "Rating":5, "GetImageURL":"../assets/Images/4.jpg","User_ID":1});
+ db.items.insert({"Item_Code":"5", "Item_Name":"Birthday", "Catalog_Category":"Occassion", "Description":"The Birthday Brights Bouquet is a true celebration of color and life to surprise and delight your special recipient on their big day! Hot pink gerbera daisies and orange roses take center stage surrounded by purple gilly flowers, yellow chrysanthemums, orange carnations, green button poms, bupleurum, and lush greens to create party perfect birthday display.", "Rating":5, "GetImageURL":"../assets/Images/5.jpg","User_ID":2});
+ db.items.insert({"Item_Code":"6", "Item_Name":"Anniversary", "Catalog_Category":"Occassion", "Description":"An elegant collection of deep red roses is perfect for saying, 'our love is timeless', or 'you are my favorite part of everyday'. Set in a clear glass vase with a metallic gold, hammered honeycomb base and accented by luscious pittosporum and salal, our florists have created an arrangement of romantic roses that is a classic beauty for your darling. Share your love with a simply sweet bouquet of 12 red roses, or a lush and full arrangement of 24 roses.", "Rating":5, "GetImageURL":"../assets/Images/6.jpg","User_ID":1});
+ db.items.insert({"Item_Code":"7", "Item_Name":"Congratulations", "Catalog_Category":"Occassion", "Description":"Send a sunny splash of color and brighten their day with this vibrant bouquet of 10 Peruvian lilies, mixed with 6 multi-colored roses. Symbolic of friendship and devotion, each stem of Peruvian lily has multiple blooms and is sure to warm their heart.", "Rating":5, "GetImageURL":"../assets/Images/7.jpg","User_ID":2});
+
+
+ db.createCollection('users');
+ db.users.insert({"User_ID":"1","Password":"anuhya","First_Name":"Anuhya","Last_Name":"Kancharla","Email_Address":"akancha2@uncc.edu","Address1":"uncc", Address2:"","City":"Charlotte","State":"NC","Zip_Code":28262,"Country":"US"});
+ db.users.insert({"User_ID":"2","Password":"kancharla", "First_Name":"Sonu","Last_Name":"Kancharla","Email_Address":"dkancharla@gmail.com", "Address1":"123 Barton creek Dr","Address2":"","City":"tucosn","State":"Az","Zip_Code":20982, "Country":"US",});
+
+
+ db.createCollection("profiles");
+ db.profiles.insert({"User_ID":"1", "Items":[{"Item_Code":"1","Rating":3,"Tried_it":"Yes"} , {"Item_Code":"3","Rating":5,"Tried_it":"Yes"}]});
+ db.profiles.insert({"User_ID":"2", "Items":[{"Item_Code":"6","Rating":3,"Tried_it":"No"} , {"Item_Code":"4","Rating":2,"Tried_it":"Yes"}]});
+                 
+			
+		

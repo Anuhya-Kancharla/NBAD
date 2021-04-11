@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+
+	<head>
+			<meta charset="UTF-8">
+			<title> Item </title>
+			<link rel="stylesheet" type="text/css" href="../assets/stylesheets/item_style.css">
+  </head>
+
+
+
+	<body>
+
+			<% include header.ejs %>
+			<% include user-navigation.ejs %>
+			<% include site-navigation.ejs %>
+
+			<p class="locn"><a href="/index">Home</a> > <a href="/categories">Categories</a> > <a href="/item/<%=data[0].Item_Code%>"><%=data[0].Item_Name%></a></p><br>
+
+			<section>
+
+				<img src=<%=data[0].GetImageURL%>>
+
+				<button onClick="window.location.href = '/myItems?action=SaveIt&Item_Code=<%= data[0].Item_Code%>'">Save it</button>
+				<a href="/feedback/<%=data[0].Item_Code%>" class="button" role="button"> Rate it</a>
+
+				<p>Rating: <%=data[0].Rating%> stars</p>
+				<br><br>
+				Item: <a href="<%data[0].Item_Code%>"> <%=data[0].Item_Name%></a>
+				<p>Category: <%=data[0].Catalog_Category%></p>
+				<br>
+
+				<a href="/categories" class="button" role="button">Return to the Catalog</a>
+
+				<p><br>Description: <br><%=data[0].Description %></p>
+
+		</section>
+
+		<% include footer.ejs %>
+
+	</body>
+
+</html>

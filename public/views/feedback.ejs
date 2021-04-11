@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> Feedback </title>
+		<link rel="stylesheet" type="text/css" href="../assets/stylesheets/feedback_style.css">
+
+   </head>
+
+
+	<body>
+		<% include header.ejs %>
+		<% include user-navigation.ejs %>
+		<% include site-navigation.ejs %>
+		<% var flag=0;%>
+		<section>
+			<p><a href="/index">Home</a> > <a href="/categories">Categories</a> > <a href="/categories"><%=data[0].Catalog_Category%> </a>> <a href="/item/<%=data[0].Item_Code%>"><%=data[0].Item_Name%></a> </p>
+			<br>
+			
+			<br>
+			<p>Give your feedback for <%=data[0].Item_Name%> :</p>
+			<img src="../assets/Images/<%=data[0].Item_Code%>.jpg" alt="Daisy">
+
+
+			<%if(Items != null){%>
+				<%for(let i=0; i < Items.length; i++){ %>
+					<%if(Items[i].Item_Code == data[0].Item_Code){%>
+						<% flag=1;%>
+						<p>Rating:
+							<form method="POST" action="/myitems/action?action=feedback_Rating&Item_Code=<%=data[0].Item_Code%>">
+            		<select name="rating" required>
+              			<option value="1" <% if (Items[i].Rating == 1){ %>selected ='selected'<% } %>> 1</option>
+              			<option value="2" <% if (Items[i].Rating == 2){ %>selected ='selected'<% } %>> 2</option>
+              			<option value="3" <% if (Items[i].Rating == 3){ %>selected ='selected'<% } %>> 3</option>
+              			<option value="4" <% if (Items[i].Rating == 4){ %>selected ='selected'<% } %>> 4</option>
+              			<option value="5" <% if (Items[i].Rating == 5){ %>selected ='selected'<% } %>> 5</option>
+            		</select>
+
+					  	<input type="submit" value="Submit">
+
+						</form>
+					</p>
+
+					<br><p> Tried It:
+						<form method="POST" action="/myitems/action?action=feedback_Tried_It&Item_Code=<%= data[0].Item_Code%>">
+  								<input type="radio" name="Tried_it" value="Yes" <% if (Items[i].Tried_it == 'Yes'){ %>checked='checked' <%}%> > Yes
+  								<input type="radio" name="Tried_it" value="No" <% if (Items[i].Tried_it == 'No'){ %>checked='checked' <%}%> > No
+  								<input type="submit" value="Submit">
+						</form>
+							</p>
+					<%}%>
+				<%}%>
+			<%}%>
+
+			<%if(flag==0 || Items==''){%>
+				<p>Rating:
+					<form method="POST" action="/myitems/action?action=feedback_Rating&Item_Code=<%=data[0].Item_Code%>">
+	            <select name="rating" required>
+	              	<option value="1"> 1 </option>
+	              	<option value="2"> 2 </option>
+	              	<option value="3"> 3 </option>
+	              	<option value="4"> 4 </option>
+	              	<option value="5"> 5 </option>
+	            </select>
+
+							<input type="submit" value="Submit">
+	        </form>
+				</p>
+
+				<br><p> Tried It:
+					<form method="POST" action="/myitems/action?action=feedback_Tried_It&Item_Code=<%= data[0].Item_Code%>">
+	  					<input type="radio" name="Tried_it" value="Yes"> Yes
+	  					<input type="radio" name="Tried_it" value="No"> No
+	  					<input type="submit" value="Submit">
+					</form>
+
+			<%}%>
+
+
+				<br><br>
+
+				<a href="/myitems" class="button" role="button">Add to Cart</a>
+
+
+		</section>
+
+			<% include footer.ejs %>
+
+	</body>
+
+</html>
