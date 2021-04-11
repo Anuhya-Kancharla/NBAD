@@ -1,4 +1,4 @@
- use flo
+ use florist
 
  db.createCollection('categories');
  db.categories.insert({"name":"Flower Types"});
